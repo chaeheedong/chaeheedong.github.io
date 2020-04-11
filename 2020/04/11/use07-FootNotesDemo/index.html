@@ -11,7 +11,7 @@
 
     <title>
         
-          navTest1 - 게으른 개발자
+          use07_FootNotesDemo - Dev Blog
         
     </title>
 
@@ -54,17 +54,24 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="book-brand">
   <a href="/">
     <img src="/favicon.png">
-    <span>게으른 개발자</span>
+    <span>DEV BLOG</span>
   </a>
 </div>
     <div class="book-menu">
-  <ul>
+  <!-- Navigation -->
+<ul>
 <li><a href="/">home</a></li>
 </ul>
-<h2 id="TestNav">TestNav</h2>
+<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
 <ul>
-<li><a href="/2020/04/09/navTest1">nav1</a></li>
-<li><a href="/2020/04/09/navTest2">nav2</a></li>
+<li><a href="/2020/04/11/use01-Elements">Elements</a></li>
+<li><a href="/2020/04/11/use02-Image">Image</a></li>
+<li><a href="/2020/04/11/use03-Link">Link</a></li>
+<li><a href="/2020/04/11/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/2020/04/11/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/2020/04/11/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/2020/04/11/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/2020/04/11/use08-MarkDownContainer">MarkDownContainer</a></li>
 </ul>
 
 </div>
@@ -123,8 +130,80 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="navTest1">navTest1</h1>
-<p>navTest1</p>
+  <h1 id="Foot-Notes-Demo">Foot Notes Demo</h1>
+<p><a href="https://kaiiiz.github.io/hexo-theme-book-demo/demo/render/footnotes-demo/" target="_blank" rel="noopener">URL</a></p>
+<hr>
+<h1 id="Footnotes">Footnotes</h1>
+<p>You can hover on link to peek the content of footnotes.</p>
+<p>Please use markdown-it renderer, and install <a href="https://github.com/markdown-it/markdown-it-footnote" target="_blank" rel="noopener">markdown-it-footnote</a> plugin.</p>
+<h2 id="Example">Example</h2>
+<p>Footnote 1 link<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>.</p>
+<p>Footnote 2 link<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
+<p>Inline footnote<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> definition.</p>
+<p>Duplicated footnote reference<sup class="footnote-ref"><a href="#fn2" id="fnref2:1">[2:1]</a></sup>.</p>
+<h2 id="…">…</h2>
+<p>…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…<br>
+…</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Footnote <strong>can have markup</strong></p>
+<p>and multiple paragraphs. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Footnote text. <a href="#fnref2" class="footnote-backref">↩︎</a> <a href="#fnref2:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Text of inline footnote <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
 </div>
 
@@ -153,10 +232,8 @@ function sidebar_toggle() {
     <!-- Author image -->
     <div class="author-img">
       
-        <figure
-          class="avatar avatar-lg"
-          data-initial="M"
-          style="background-color: #3b4351;">
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
         </figure>
       
     </div>
@@ -164,7 +241,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>Mr. Lazy Tyler</div>
-      <div>2020-04-09</div>
+      <div>2020-04-11</div>
     </div>
   </div>
 
