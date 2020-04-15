@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          studyOra_charFunc - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY">STUDY</h1>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/2020/04/14/studyOra-charFunc">문자함수</a></li>
+</ul>
+<h1 id="에러모음">에러모음</h1>
+<h2 id="ORACLE-ERR">ORACLE ERR</h2>
+<ul>
+<li><a href="/2020/04/13/ora01">ORA-01*</a></li>
+</ul>
+<h1 id=""></h1>
+<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
+<ul>
+<li><a href="/2020/04/11/use01-Elements">Elements</a></li>
+<li><a href="/2020/04/11/use02-Image">Image</a></li>
+<li><a href="/2020/04/11/use03-Link">Link</a></li>
+<li><a href="/2020/04/11/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/2020/04/11/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/2020/04/11/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/2020/04/11/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/2020/04/11/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h2 id="문자-함수">문자 함수</h2>
+<br/>
+<h3 id="">||</h3>
+<blockquote>
+<p><b><code>문자열을 이어 붙이는 역할을 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT &#39;A&#39; || &#39;B&#39; || &#39;C&#39;</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">ABC</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="CHR-ascii">CHR(ascii)</h3>
+<blockquote>
+<p><b><code>아스키 코드를 입력해 줍니다.</code></b><br>
+CHR(10) : \n<br>
+CHR(13) : \r</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT &#39;A&#39; || CHR(10) || &#39;B&#39;</span><br><span class="line">FROM DUAL</span><br><span class="line">-----------------------------</span><br><span class="line">A</span><br><span class="line">B</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="LOWER">LOWER</h3>
+<blockquote>
+<p><b> <code>문자열을 소문자로 변경해 줍니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT LOWER(&#39;AbCdE&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">----------------------</span><br><span class="line">abcde</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="UPPER">UPPER</h3>
+<blockquote>
+<p><b> <code>문자열을 대문자로 변경해 줍니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT UPPER(&#39;aBcDe&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">----------------------</span><br><span class="line">ABCDE</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="INITCAP">INITCAP</h3>
+<blockquote>
+<p><b> <code>첫글자를 대문자로, </code> </b><br>
+<b> <code>이 외 글자는 소문자로 변경해 줍니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT INITCAP(&#39;hello world!&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------------</span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="LTRIM">LTRIM</h3>
+<blockquote>
+<p><b> <code>좌측의 특정 값을 제거 합니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT LTRIM(&#39;   ABC&#39;)</span><br><span class="line">     , LTRIM(&#39;ABC&#39;, &#39;A&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">ABC</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="RTRIM">RTRIM</h3>
+<blockquote>
+<p><b> <code>우측의 특정 값을 제거 합니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT RTRIM(&#39;ABC   &#39;)</span><br><span class="line">     , RTRIM(&#39;ABC&#39;, &#39;C&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">ABC</span><br><span class="line">AB</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="TRIM">TRIM</h3>
+<blockquote>
+<p><b> <code>좌, 우측의 공백을 제거 합니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT TRIM(&#39;  ABC   &#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">------------------------</span><br><span class="line">ABC</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="SUBSTR">SUBSTR</h3>
+<blockquote>
+<p><b> <code>특정 길이만큼 잘라 냅니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUBSTR(&#39;ABCDE&#39;, 2)</span><br><span class="line">     , SUBSTR(&#39;ABCDE&#39;, 2, 2)</span><br><span class="line">FROM DUAL</span><br><span class="line">--------------------------</span><br><span class="line">BCDE</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="REPLACE">REPLACE</h3>
+<blockquote>
+<p><b> <code>특정 값을 특정 값으로 변경해 줍니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT REPLACE(&#39;ABCDE&#39;, &#39;CDE&#39;, &#39;FGH&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">--------------------------------------</span><br><span class="line">ABFGH</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="ASCII">ASCII</h3>
+<blockquote>
+<p><b> <code>아스키 코드의 숫자로 변환해 줍니다.</code> </b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT ASCII(&#39;A&#39;)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------</span><br><span class="line">65</span><br></pre></td></tr></table></figure>
+<br/>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2020-04-14</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
