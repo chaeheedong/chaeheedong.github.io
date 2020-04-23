@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          studyOra-numberFunc - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY">STUDY</h1>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/2020/04/14/studyOra-charFunc">&gt; 문자함수</a></li>
+<li><a href="/2020/04/21/studyOra-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/2020/04/23/studyOra-dateFunc">&gt; 날짜함수</a></li>
+</ul>
+<h1 id="에러모음">에러모음</h1>
+<h2 id="ORACLE-ERR">ORACLE ERR</h2>
+<ul>
+<li><a href="/2020/04/13/ora01">&gt; ORA-01*</a></li>
+<li><a href="/2020/04/23/ora03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id=""></h1>
+<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
+<ul>
+<li><a href="/2020/04/11/use01-Elements">Elements</a></li>
+<li><a href="/2020/04/11/use02-Image">Image</a></li>
+<li><a href="/2020/04/11/use03-Link">Link</a></li>
+<li><a href="/2020/04/11/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/2020/04/11/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/2020/04/11/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/2020/04/11/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/2020/04/11/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h2 id="숫자-함수">숫자 함수</h2>
+<br/>
+<h3 id="ABS">ABS</h3>
+<blockquote>
+<p><b><code>절대값을 반환 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT ABS(-1), ABS(+1)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">1  1</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="SIGN">SIGN</h3>
+<blockquote>
+<p><b><code>0, 양수, 음수를 판별해 줍니다.</code></b><br>
+<b><code> 0은 0, 양수는 +1, 음수는 -1 반환</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT SIGN(0), SIGN(+7), SIGN(-7)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">0  1  -1</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="ROUND">ROUND</h3>
+<blockquote>
+<p><b><code>지정된 자리수까지 반올림 합니다.</code></b><br>
+<b><code>자리수 기본값은 0 입니다.</code></b><br>
+<b><code>ROUND(숫자, 자리수)</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(12.34), ROUND(12.34, 1)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">12  12.3</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="TRUNC">TRUNC</h3>
+<blockquote>
+<p><b><code>지정된 자리수까지 버립니다.</code></b><br>
+<b><code>자리수 기본값은 0 입니다.</code></b><br>
+<b><code>TRUNC(숫자, 자리수)</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT TRUNC(12.34), TRUNC(12.34, 1)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">12  12.3</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="CEIL">CEIL</h3>
+<blockquote>
+<p><b><code>올림값을 반환 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CEIL(12.34), CEIL(12)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">13  12</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="FLOOR">FLOOR</h3>
+<blockquote>
+<p><b><code>내림값을 반환 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT FLOOR(12.34), FLOOR(12)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">12  12</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="MOD">MOD</h3>
+<blockquote>
+<p><b><code>나눈 값의 나머지값을 반환 합니다.</code></b><br>
+<b><code>(N2 * FLOOR(N1/N2)) - N1</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT MOD(12, 3), MOD(12.34, 3), MOD(12, -3)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">0  0.34  0</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="REMAINDER">REMAINDER</h3>
+<blockquote>
+<p><b><code>나눈 값의 나머지값을 반환 합니다.</code></b><br>
+<b><code>(N2 * ROUND(N1/N2)) - N1</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT REMAINDER(12, 3), REMAINDER(12.34, 3), REMAINDER(12, -3)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">0  0.34  0</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="POWER">POWER</h3>
+<blockquote>
+<p><b><code>n의 제곱을 반환 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT POWER(2, 2), POWER(2, 3), POWER(2, 4)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">4  8  16</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="SQRT">SQRT</h3>
+<blockquote>
+<p><b><code>제곱근을 반환 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT SQRT(4), SQRT(9), SQRT(16)</span><br><span class="line">FROM DUAL</span><br><span class="line">-------------------------</span><br><span class="line">2  3  4</span><br></pre></td></tr></table></figure>
+<br/>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2020-04-21</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
