@@ -11,7 +11,7 @@
 
     <title>
         
-          use08_MarkDownContainer - Dev Blog
+          studyOra-sequence - Dev Blog
         
     </title>
 
@@ -158,22 +158,9 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="MarkDown-Container">MarkDown Container</h1>
-<p><a href="https://kaiiiz.github.io/hexo-theme-book-demo/demo/render/md-container/" target="_blank" rel="noopener">URL</a></p>
-<hr>
-<hr>
-<h2 id="comments-false">comments: false</h2>
-<h1 id="Markdown-Container">Markdown Container</h1>
-<p>::: note<br>
-<em>note</em><br>
-:::</p>
-<p>::: tip<br>
-<em>tip</em><br>
-:::</p>
-<p>::: attention<br>
-<em>attention</em><br>
-:::</p>
-
+  <h1 id="ORACLE-SEQUENCE">ORACLE SEQUENCE</h1>
+<h3 id="다중-Insert-Sequence">다중 Insert Sequence</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO TB_TABLE ( SEQ, COLUMN )</span><br><span class="line">        SELECT SEQ.NEXTVAL, T.*</span><br><span class="line">        FROM</span><br><span class="line">        (</span><br><span class="line">            &lt;foreach item&#x3D;&quot;item&quot; collection&#x3D;&quot;list&quot; separator&#x3D;&quot;UNION ALL&quot;&gt;</span><br><span class="line">                SELECT</span><br><span class="line">                    $&#123;item.columnsName&#125;</span><br><span class="line">                FROM DUAL</span><br><span class="line">            &lt;&#x2F;foreach&gt;</span><br><span class="line">        ) T</span><br></pre></td></tr></table></figure>
 </div>
 
 
@@ -210,7 +197,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>Mr. Lazy Tyler</div>
-      <div>2020-04-11</div>
+      <div>2020-07-21</div>
     </div>
   </div>
 

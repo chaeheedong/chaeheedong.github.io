@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          java_encryption - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY">STUDY</h1>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/2020/04/14/studyOra-charFunc">&gt; 문자함수</a></li>
+<li><a href="/2020/04/21/studyOra-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/2020/04/23/studyOra-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/2020/07/21/studyOra-sequence">&gt; 시퀀스</a></li>
+</ul>
+<h2 id="MySQL">MySQL</h2>
+<ul>
+<li><a href="/2020/07/21/mysql-merge">&gt; MERGE</a></li>
+</ul>
+<h2 id="JAVA">JAVA</h2>
+<ul>
+<li><a href="/2020/07/21/java-encryption">&gt; 암호화</a></li>
+</ul>
+<h1 id="에러모음">에러모음</h1>
+<h2 id="ORACLE-ERR">ORACLE ERR</h2>
+<ul>
+<li><a href="/2020/04/13/ora01">&gt; ORA-01*</a></li>
+<li><a href="/2020/04/23/ora03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id=""></h1>
+<h2 id="기타">기타</h2>
+<ul>
+<li><a href="/2020/05/08/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+</ul>
+<h1 id="-v2"></h1>
+<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
+<ul>
+<li><a href="/2020/04/11/use01-Elements">Elements</a></li>
+<li><a href="/2020/04/11/use02-Image">Image</a></li>
+<li><a href="/2020/04/11/use03-Link">Link</a></li>
+<li><a href="/2020/04/11/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/2020/04/11/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/2020/04/11/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/2020/04/11/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/2020/04/11/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="암호화">암호화</h1>
+<h3 id="java-security-SecureRandom">java.security.SecureRandom</h3>
+<ul>
+<li>이 클래스는 암호화된 강한 무작위 번호를 제공한다.</li>
+<li>제너레이터(RNG).</li>
+<li>암호화된 강한 무작위 번호</li>
+<li>통계적 난수 생성기 시험을 최소한으로 준수한다.</li>
+<li>&quot;<a href="http://csrc.nist.gov/cryptval/140-2.htm" target="_blank" rel="noopener">http://csrc.nist.gov/cryptval/140-2.htm</a>&quot;에 지정됨</li>
+<li>FIPS 140-2, 암호화 모듈에 대한 보안 요구사항,</li>
+<li>section 4.9.1.</li>
+<li>또한 SecureRandom은 비결정적 출력을 생성해야 한다.</li>
+<li>따라서 SecureRandom 객체에 전달되는 모든 시드 재료는 다음과 같아야 한다.</li>
+<li>예측 불가능한 모든 SecureRandom 출력 시퀀스는</li>
+<li>에 기술된 바와 같이 암호화된 방식으로 강한.</li>
+<li>“<a href="http://www.ietf.org/rfc/rfc1750.txt" target="_blank" rel="noopener">http://www.ietf.org/rfc/rfc1750.txt</a>”</li>
+<li>RFC 1750: 보안을 위한 무작위 권장 사항.</li>
+<li>호출자가 다음을 통해 SecureRandom 인스턴스를 얻음</li>
+<li>인수 없음 생성자 또는 {@code getInstance} 방법 중 하나:</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SecureRandom random &#x3D; new SecureRandom();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>많은 SecureRandom 구현이 의사 무작위의 형태로 이루어짐</li>
+<li>숫자 생성기(PRNG), 즉 결정론적 알고리즘을 사용한다는 의미</li>
+<li>진짜 무작위 씨앗에서 사이비-비교 순서를 만들어 내는 것.</li>
+<li>다른 구현에서는 실제 무작위 숫자를 생성할 수 있다.</li>
+<li>그리고 다른 사람들은 두 기술의 조합을 사용할 수도 있다.</li>
+<li>SecureRandom의 일반적인 호출자가 다음 방법을 호출함</li>
+<li>임의 바이트를 검색하려면:</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SecureRandom random &#x3D; new SecureRandom();</span><br><span class="line">byte bytes[] &#x3D; new byte[20];</span><br><span class="line">random.nextBytes(bytes);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>호출자가 {@code generateSeed} 메서드를 호출할 수도 있음</li>
+<li>지정된 수의 시드 바이트를 생성하려면(다른 랜덤 번호를 시드하려면)</li>
+<li>생성자(예:):</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">byte seed[] &#x3D; random.generateSeed(20);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>참고: 구현에 따라 {@code generateSeed} 및</li>
+<li>엔트로피가 수집되면서 {@code nextBytes} 메서드가 차단될 수 있음</li>
+<li>예를 들어, /dev/random에서 다양한 Unix 유사 항목을 읽어야 하는 경우</li>
+<li>운영 체제</li>
+<li>@see java.security.SecureRandomSpi</li>
+<li>@see java.util.Random</li>
+<li>@author Benjamin Renaud</li>
+<li>@author Josh Bloch</li>
+</ul>
+<hr>
+<h3 id="예제-소스">예제 소스</h3>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import java.security.secureRandom;</span><br><span class="line">import org.apache.commons.codec.digest.DigestUtils;</span><br><span class="line"></span><br><span class="line">public class secureRandomTest &#123;</span><br><span class="line"></span><br><span class="line">    public static String generateSalt() &#123;</span><br><span class="line">        SecureRandom random &#x3D; new SecureRandom();</span><br><span class="line">        byte[] salt &#x3D; new byte[32];</span><br><span class="line">        random.nextBytes(salt);</span><br><span class="line">        StringBuffer sb &#x3D; new StringBuffer();</span><br><span class="line">        for (int i &#x3D; 0; i &lt; salt.length; i++) &#123;</span><br><span class="line">            sb.append(String.format(&quot;%02x&quot;,salt[i]));</span><br><span class="line">        &#125;</span><br><span class="line">        return sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static String getHashedPassword(String password, String salt)&#123;</span><br><span class="line">		return DigestUtils.sha512Hex(password+salt);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        String password &#x3D; &quot;~1q2w3e4r&quot;;</span><br><span class="line"></span><br><span class="line">        String salt &#x3D; generateSalt();</span><br><span class="line">        String pwd  &#x3D; getHashedPassword(password, salt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2020-07-21</div>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
