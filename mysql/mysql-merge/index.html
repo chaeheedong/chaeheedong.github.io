@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          mysql_merge - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY">STUDY</h1>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/oracle/studyOra-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/studyOra-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/studyOra-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/studyOra-sequence">&gt; 시퀀스</a></li>
+</ul>
+<h2 id="MySQL">MySQL</h2>
+<ul>
+<li><a href="/mysql/mysql-merge">&gt; MERGE</a></li>
+</ul>
+<h2 id="JAVA">JAVA</h2>
+<ul>
+<li><a href="/java/java-encryption">&gt; 암호화</a></li>
+</ul>
+<h1 id="SETTINGS">SETTINGS</h1>
+<h2 id="SPRING">SPRING</h2>
+<ul>
+<li><a href="/spring/setting-tiles">&gt; Tiles</a></li>
+</ul>
+<h1 id="에러모음">에러모음</h1>
+<h2 id="ORACLE-ERR">ORACLE ERR</h2>
+<ul>
+<li><a href="/oracle/ora00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/ora01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/ora03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id=""></h1>
+<h2 id="기타">기타</h2>
+<ul>
+<li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+</ul>
+<h1 id="-v2"></h1>
+<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
+<ul>
+<li><a href="/usage/use01-Elements">Elements</a></li>
+<li><a href="/usage/use02-Image">Image</a></li>
+<li><a href="/usage/use03-Link">Link</a></li>
+<li><a href="/usage/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/usage/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/usage/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/usage/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/usage/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+
+/**
+ * 풀스크린일때 메뉴 열고 닫기
+ */
+// window.onkeydown = e => {
+//   e.key === 'S'   ? this.sidebar_toggle()
+//   : e.key === 's' && this.sidebar_toggle()
+// }
+window.onkeydown = e => {
+  if(e.key === 'S' || e.key === 's') {
+    this.sidebar_toggle();
+  }
+}
+
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    } else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h2 id="Merge">Merge</h2>
+<h3 id="테스트-테이블-생성">테스트 테이블 생성</h3>
+<blockquote>
+<p>USER 테이블을 생성하고,<br>
+NAME, ADDR 컬럼을 추가한 후에<br>
+NAME 컬럼을 유니크 키로 설정한다.</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span> (</span><br><span class="line">    <span class="keyword">NAME</span> <span class="built_in">VARCHAR</span>(<span class="number">25</span>),</span><br><span class="line">    ADDR <span class="built_in">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span> <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span>(<span class="keyword">NAME</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<br/>
+<h3 id="Mysql-Merge-방법">Mysql Merge 방법</h3>
+<blockquote>
+<p>값이 없으면 INSERT<br>
+값이 있으면 UPDATE 를 한다.</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`USER`</span>(<span class="keyword">NAME</span>, ADDR)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">'홍길동'</span>, <span class="string">'서울시'</span>)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">NAME</span> = <span class="string">'홍길동'</span>, ADDR = <span class="string">'부산시'</span>;</span><br></pre></td></tr></table></figure>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2020-07-21</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/mysql/">mysql</a>
+
+      
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>

@@ -65,47 +65,47 @@ document.addEventListener('DOMContentLoaded', function () {
 <h1 id="STUDY">STUDY</h1>
 <h2 id="ORACLE">ORACLE</h2>
 <ul>
-<li><a href="/2020/04/14/studyOra-charFunc">&gt; 문자함수</a></li>
-<li><a href="/2020/04/21/studyOra-numberFunc">&gt; 숫자함수</a></li>
-<li><a href="/2020/04/23/studyOra-dateFunc">&gt; 날짜함수</a></li>
-<li><a href="/2020/07/21/studyOra-sequence">&gt; 시퀀스</a></li>
+<li><a href="/oracle/studyOra-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/studyOra-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/studyOra-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/studyOra-sequence">&gt; 시퀀스</a></li>
 </ul>
 <h2 id="MySQL">MySQL</h2>
 <ul>
-<li><a href="/2020/07/21/mysql-merge">&gt; MERGE</a></li>
+<li><a href="/mysql/mysql-merge">&gt; MERGE</a></li>
 </ul>
 <h2 id="JAVA">JAVA</h2>
 <ul>
-<li><a href="/2020/07/21/java-encryption">&gt; 암호화</a></li>
+<li><a href="/java/java-encryption">&gt; 암호화</a></li>
 </ul>
 <h1 id="SETTINGS">SETTINGS</h1>
 <h2 id="SPRING">SPRING</h2>
 <ul>
-<li><a href="/2020/09/08/setting-tiles">&gt; Tiles</a></li>
+<li><a href="/spring/setting-tiles">&gt; Tiles</a></li>
 </ul>
 <h1 id="에러모음">에러모음</h1>
 <h2 id="ORACLE-ERR">ORACLE ERR</h2>
 <ul>
-<li><a href="/2020/09/07/ora00">&gt; ORA-00*</a></li>
-<li><a href="/2020/04/13/ora01">&gt; ORA-01*</a></li>
-<li><a href="/2020/04/23/ora03">&gt; ORA-03*</a></li>
+<li><a href="/oracle/ora00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/ora01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/ora03">&gt; ORA-03*</a></li>
 </ul>
 <h1 id=""></h1>
 <h2 id="기타">기타</h2>
 <ul>
-<li><a href="/2020/05/08/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+<li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
 </ul>
 <h1 id="-v2"></h1>
 <h2 id="GitBlog-사용법">GitBlog 사용법</h2>
 <ul>
-<li><a href="/2020/04/11/use01-Elements">Elements</a></li>
-<li><a href="/2020/04/11/use02-Image">Image</a></li>
-<li><a href="/2020/04/11/use03-Link">Link</a></li>
-<li><a href="/2020/04/11/use04-TagPlugins">TagPlugins</a></li>
-<li><a href="/2020/04/11/use05-MarkDownDemo">MarkDownDemo</a></li>
-<li><a href="/2020/04/11/use06-KatexDemo">KatexDemo</a></li>
-<li><a href="/2020/04/11/use07-FootNotesDemo">FooterNotesDemo</a></li>
-<li><a href="/2020/04/11/use08-MarkDownContainer">MarkDownContainer</a></li>
+<li><a href="/usage/use01-Elements">Elements</a></li>
+<li><a href="/usage/use02-Image">Image</a></li>
+<li><a href="/usage/use03-Link">Link</a></li>
+<li><a href="/usage/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/usage/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/usage/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/usage/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/usage/use08-MarkDownContainer">MarkDownContainer</a></li>
 </ul>
 
 </div>
@@ -120,6 +120,20 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 
 <script>
+
+/**
+ * 풀스크린일때 메뉴 열고 닫기
+ */
+// window.onkeydown = e => {
+//   e.key === 'S'   ? this.sidebar_toggle()
+//   : e.key === 's' && this.sidebar_toggle()
+// }
+window.onkeydown = e => {
+  if(e.key === 'S' || e.key === 's') {
+    this.sidebar_toggle();
+  }
+}
+
 function add_inner() {
   let inner = document.querySelector('.sidebar-toggle-inner')
   inner.classList.add('show')  
@@ -138,8 +152,7 @@ function sidebar_toggle() {
         sidebar_toggle.classList.remove('extend')
         sidebar.classList.remove('hide')
         content.classList.remove('extend')
-    }
-    else { // hide
+    } else { // hide
         sidebar_toggle.classList.add('extend')
         sidebar.classList.add('hide')
         content.classList.add('extend')
@@ -181,154 +194,154 @@ function sidebar_toggle() {
           
               <li>
                 <span>2020-09-08</span>
-                <a href="/2020/09/08/setting-tiles/">
+                <a href="/spring/setting-tiles/">
                   setting-tiles
                 </a>
               </li>
           
               <li>
                 <span>2020-09-07</span>
-                <a href="/2020/09/07/ora00/">
+                <a href="/oracle/ora00/">
                   ora00
                 </a>
               </li>
           
               <li>
                 <span>2020-07-21</span>
-                <a href="/2020/07/21/studyOra-sequence/">
+                <a href="/oracle/studyOra-sequence/">
                   studyOra-sequence
                 </a>
               </li>
           
               <li>
                 <span>2020-07-21</span>
-                <a href="/2020/07/21/mysql-merge/">
+                <a href="/mysql/mysql-merge/">
                   mysql_merge
                 </a>
               </li>
           
               <li>
                 <span>2020-07-21</span>
-                <a href="/2020/07/21/java-encryption/">
+                <a href="/java/java-encryption/">
                   java_encryption
                 </a>
               </li>
           
               <li>
                 <span>2020-05-08</span>
-                <a href="/2020/05/08/etc-Intellij-Plugins/">
+                <a href="/etc/etc-Intellij-Plugins/">
                   etc_Intellij_Plugins
                 </a>
               </li>
           
               <li>
                 <span>2020-04-23</span>
-                <a href="/2020/04/23/ora03/">
+                <a href="/oracle/ora03/">
                   ora03
                 </a>
               </li>
           
               <li>
                 <span>2020-04-23</span>
-                <a href="/2020/04/23/studyOra-dateFunc/">
+                <a href="/oracle/studyOra-dateFunc/">
                   studyOra-dateFunc
                 </a>
               </li>
           
               <li>
                 <span>2020-04-21</span>
-                <a href="/2020/04/21/studyOra-numberFunc/">
+                <a href="/oracle/studyOra-numberFunc/">
                   studyOra-numberFunc
                 </a>
               </li>
           
               <li>
                 <span>2020-04-14</span>
-                <a href="/2020/04/14/studyOra-charFunc/">
+                <a href="/oracle/studyOra-charFunc/">
                   studyOra_charFunc
                 </a>
               </li>
           
               <li>
                 <span>2020-04-13</span>
-                <a href="/2020/04/13/ora01/">
+                <a href="/oracle/ora01/">
                   ora01
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use08-MarkDownContainer/">
+                <a href="/usage/use08-MarkDownContainer/">
                   use08_MarkDownContainer
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use07-FootNotesDemo/">
+                <a href="/usage/use07-FootNotesDemo/">
                   use07_FootNotesDemo
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use06-KatexDemo/">
+                <a href="/usage/use06-KatexDemo/">
                   use06_KatexDemo
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use05-MarkDownDemo/">
+                <a href="/usage/use05-MarkDownDemo/">
                   use05_MarkDownDemo
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use04-TagPlugins/">
+                <a href="/usage/use04-TagPlugins/">
                   use04_TagPlugins
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use03-Link/">
+                <a href="/usage/use03-Link/">
                   use03_Link
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use02-Image/">
+                <a href="/usage/use02-Image/">
                   use02_Image
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/use01-Elements/">
+                <a href="/usage/use01-Elements/">
                   use01_Elements
                 </a>
               </li>
           
               <li>
                 <span>2020-04-11</span>
-                <a href="/2020/04/11/git01-gitSetting/">
+                <a href="/uncategorized/git01-gitSetting/">
                   git01_gitSetting
                 </a>
               </li>
           
               <li>
                 <span>2020-04-09</span>
-                <a href="/2020/04/09/menu/">
+                <a href="/uncategorized/menu/">
                   menu
                 </a>
               </li>
           
               <li>
                 <span>2020-04-09</span>
-                <a href="/2020/04/09/home/">
+                <a href="/uncategorized/home/">
                   home
                 </a>
               </li>
