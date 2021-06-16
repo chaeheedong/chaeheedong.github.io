@@ -11,7 +11,7 @@
 
     <title>
         
-          ora03 - Dev Blog
+          oracle-err01 - Dev Blog
         
     </title>
 
@@ -62,13 +62,13 @@ document.addEventListener('DOMContentLoaded', function () {
 <ul>
 <li><a href="/">home</a></li>
 </ul>
-<h1 id="STUDY">STUDY</h1>
+<h1 id="STUDY"><mark>[ STUDY ]</mark></h1>
 <h2 id="ORACLE">ORACLE</h2>
 <ul>
-<li><a href="/oracle/studyOra-charFunc">&gt; 문자함수</a></li>
-<li><a href="/oracle/studyOra-numberFunc">&gt; 숫자함수</a></li>
-<li><a href="/oracle/studyOra-dateFunc">&gt; 날짜함수</a></li>
-<li><a href="/oracle/studyOra-sequence">&gt; 시퀀스</a></li>
+<li><a href="/oracle/oracle-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/oracle-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/oracle-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/oracle-sequence">&gt; 시퀀스</a></li>
 </ul>
 <h2 id="MySQL">MySQL</h2>
 <ul>
@@ -78,25 +78,33 @@ document.addEventListener('DOMContentLoaded', function () {
 <ul>
 <li><a href="/java/java-encryption">&gt; 암호화</a></li>
 </ul>
-<h1 id="SETTINGS">SETTINGS</h1>
 <h2 id="SPRING">SPRING</h2>
 <ul>
-<li><a href="/spring/setting-tiles">&gt; Tiles</a></li>
+<li><a href="">&gt;</a></li>
 </ul>
-<h1 id="에러모음">에러모음</h1>
-<h2 id="ORACLE-ERR">ORACLE ERR</h2>
+<h2 id="REACT">REACT</h2>
 <ul>
-<li><a href="/oracle/ora00">&gt; ORA-00*</a></li>
-<li><a href="/oracle/ora01">&gt; ORA-01*</a></li>
-<li><a href="/oracle/ora03">&gt; ORA-03*</a></li>
+<li><a href="">&gt;</a></li>
 </ul>
-<h1 id=""></h1>
-<h2 id="기타">기타</h2>
+<h1 id="SETTINGS"><mark>[ SETTINGS ]</mark></h1>
+<h2 id="SPRING-v2">SPRING</h2>
+<ul>
+<li><a href="/spring/spring-tiles">&gt; Tiles</a></li>
+</ul>
+<h1 id="에러모음"><mark>[ 에러모음 ]</mark></h1>
+<h2 id="ORACLE-v2">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-err00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/oracle-err01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/oracle-err03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id="etc"><mark>[ etc ]</mark></h1>
+<h2 id="PLUGIN">PLUGIN</h2>
 <ul>
 <li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
 </ul>
-<h1 id="-v2"></h1>
-<h2 id="GitBlog-사용법">GitBlog 사용법</h2>
+<h1 id="useage"><mark>[ useage ]</mark></h1>
+<h2 id="GITBLOG">GITBLOG</h2>
 <ul>
 <li><a href="/usage/use01-Elements">Elements</a></li>
 <li><a href="/usage/use02-Image">Image</a></li>
@@ -179,14 +187,14 @@ function sidebar_toggle() {
           <div class="book-post">
   <p><a href="https://docs.oracle.com/pls/db92/db92.error_search?remark=homepage&amp;prefill=ORA" target="_blank" rel="noopener">검색창</a></p>
 <hr>
-<h2 id="ORACLE-ERROR-모음-ORA-03">ORACLE ERROR 모음 (ORA-03*)</h2>
-<h3 id="ORA-30076">ORA-30076</h3>
+<h2 id="ORACLE-ERROR-모음-ORA-01">ORACLE ERROR 모음 (ORA-01*)</h2>
+<h3 id="ORA-01861">ORA-01861</h3>
 <blockquote>
-<p>invalid extract field for extract source<br>
-<b><code>추출 소스에 대한 추출 필드입니다.</code></b><br>
-EXTRACT 함수를 사용할 때 필드의 자료형이<br>
-DATE 형식이 맞지 않다는 에러 입니다.<br>
-필드값의 형식을 DATE로 맞춰 주시면 됩니다.</p>
+<p>literal does not match format string<br>
+<b><code>리터럴이 형식 문자열과 일치하지 않습니다.</code></b><br>
+DATE형에 String형을 넣으려 하거나,<br>
+DATE형과 String형을 비교 하려고 할 때 발생하는 에러<br>
+TO_CHAR, TO_DATE로 형을 맞춰 주어야 합니다.</p>
 </blockquote>
 <hr>
 
@@ -226,7 +234,7 @@ DATE 형식이 맞지 않다는 에러 입니다.<br>
     <!-- Author title -->
     <div class="author-title">
       <div>Mr. Lazy Tyler</div>
-      <div>2020-04-23</div>
+      <div>2020-04-13</div>
     </div>
   </div>
 
