@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          git-cli - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY"><mark>[ STUDY ]</mark></h1>
+<h2 id="Git-GitHub">Git &amp; GitHub</h2>
+<ul>
+<li><a href="/git/git-cli">&gt; CLI</a></li>
+</ul>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/oracle-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/oracle-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/oracle-sequence">&gt; 시퀀스</a></li>
+</ul>
+<h2 id="MySQL">MySQL</h2>
+<ul>
+<li><a href="/mysql/mysql-merge">&gt; MERGE</a></li>
+</ul>
+<h2 id="JAVA">JAVA</h2>
+<ul>
+<li><a href="/java/java-encryption">&gt; 암호화</a></li>
+</ul>
+<h2 id="SPRING">SPRING</h2>
+<ul>
+<li><a href="">&gt;</a></li>
+</ul>
+<h2 id="REACT">REACT</h2>
+<ul>
+<li><a href="">&gt;</a></li>
+</ul>
+<h1 id="SETTINGS"><mark>[ SETTINGS ]</mark></h1>
+<h2 id="SPRING-v2">SPRING</h2>
+<ul>
+<li><a href="/spring/spring-tiles">&gt; Tiles</a></li>
+</ul>
+<h1 id="ERROR"><mark>[ ERROR ]</mark></h1>
+<h2 id="ORACLE-v2">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-err00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/oracle-err01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/oracle-err03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id="ETC"><mark>[ ETC ]</mark></h1>
+<h2 id="PLUGIN">PLUGIN</h2>
+<ul>
+<li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+</ul>
+<h1 id="USAGE"><mark>[ USAGE ]</mark></h1>
+<h2 id="GITBLOG">GITBLOG</h2>
+<ul>
+<li><a href="/usage/use01-Elements">Elements</a></li>
+<li><a href="/usage/use02-Image">Image</a></li>
+<li><a href="/usage/use03-Link">Link</a></li>
+<li><a href="/usage/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/usage/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/usage/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/usage/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/usage/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+
+/**
+ * 풀스크린일때 메뉴 열고 닫기
+ */
+// window.onkeydown = e => {
+//   e.key === 'S'   ? this.sidebar_toggle()
+//   : e.key === 's' && this.sidebar_toggle()
+// }
+window.onkeydown = e => {
+  if(e.key === 'S' || e.key === 's') {
+    this.sidebar_toggle();
+  }
+}
+
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    } else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h2 id="Git-CLI-Setting">Git CLI Setting</h2>
+<h3 id="버전-확인">버전 확인</h3>
+<blockquote>
+<p><b><code>Git 버전을 확인할 수 있습니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br><span class="line">-------------------------</span><br><span class="line">git version 2.24.3</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="설정-확인">설정 확인</h3>
+<blockquote>
+<p><b><code>Git 설정을 확인할 수 있습니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br><span class="line">-------------------------</span><br><span class="line">...config list</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="브랜치-이름-바꾸기">브랜치 이름 바꾸기</h3>
+<blockquote>
+<p><b><code>Git 브랜치 이름을 변경합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global init.defaultBranch main</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="이름-이메일-설정하기">이름, 이메일 설정하기</h3>
+<blockquote>
+<p><b><code>Git 설정에 있는 name과 email을 변경합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="br"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="Git-CLI-Study">Git CLI Study</h2>
+<h3 id="생성하기">생성하기</h3>
+<blockquote>
+<p><b><code>Git 으로 관리할 대상 내부에 .git 폴더를 생성합니다.</code></b><br>
+<b><code>최초 1회만 입력합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">-------------------------</span><br><span class="line">Initialized empty Git repository in .git path</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="상태-확인하기">상태 확인하기</h3>
+<blockquote>
+<p><b><code>현재 브랜치의 변경상태를 확인할 수 있습니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">-------------------------</span><br><span class="line">Untracked files:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span><br><span class="line">	index.html</span><br><span class="line">	index2.html</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="반영할-대상-지정하기">반영할 대상 지정하기</h3>
+<blockquote>
+<p><b><code>Git 에 반영할 대상을 지정합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="반영하기">반영하기</h3>
+<blockquote>
+<p><b><code>Git 에 반영합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;message&quot;</span><br><span class="line">-------------------------</span><br><span class="line">[master (root-commit) df2e840] initial commit</span><br><span class="line"> 2 files changed, 0 insertions(+), 0 deletions(-)</span><br><span class="line"> create mode 100644 index.html</span><br><span class="line"> create mode 100644 index2.html</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="로그-확인하기">로그 확인하기</h3>
+<blockquote>
+<p><b><code>Git 로그를 확인합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">-------------------------</span><br><span class="line">commit d101e2d9501ad17abe795fbcf3fa6ed0608effca (HEAD -&gt; master)</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:05:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    create main, user page &lt;-- 커밋 메시지</span><br><span class="line"></span><br><span class="line">commit df2e84024257d6fa1ee8889346a966cc11450aa5</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:01:03 2021 +0900</span><br><span class="line"></span><br><span class="line">    create index page &lt;-- 커밋 메시지</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="변경-취소하기">변경 취소하기</h3>
+<blockquote>
+<p><b><code>변경된 사항을 취소합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br><span class="line">-------------------------</span><br><span class="line">HEAD is now at c33c589 update two file</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="되돌아가기">되돌아가기</h3>
+<blockquote>
+<p><b><code>원하는 이전 상태로 돌아갑니다.</code></b><br>
+<b><code>한번 돌아가면 더이상 돌아오지 못하니 주의합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commitAddress(df2e84024257d6fa1ee8889346a966cc11450aa5)</span><br><span class="line">-------------------------</span><br><span class="line">commit d101e2d9501ad17abe795fbcf3fa6ed0608effca (HEAD -&gt; master)</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:05:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    create main, user page &lt;-- 커밋 메시지</span><br><span class="line"></span><br><span class="line">commit df2e84024257d6fa1ee8889346a966cc11450aa5</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:01:03 2021 +0900</span><br><span class="line"></span><br><span class="line">    create index page &lt;-- 커밋 메시지</span><br></pre></td></tr></table></figure>
+<br/>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2021-06-22</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/git/">git</a>
+
+      
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
