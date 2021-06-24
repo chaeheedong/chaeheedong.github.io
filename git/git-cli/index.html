@@ -258,11 +258,55 @@ function sidebar_toggle() {
 <h3 id="되돌아가기">되돌아가기</h3>
 <blockquote>
 <p><b><code>원하는 이전 상태로 돌아갑니다.</code></b><br>
-<b><code>한번 돌아가면 더이상 돌아오지 못하니 주의합니다.</code></b></p>
+<b><code>(주의) 한번 돌아가면 더이상 돌아오지 못하니 주의합니다.</code></b></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commitAddress(df2e84024257d6fa1ee8889346a966cc11450aa5)</span><br><span class="line">-------------------------</span><br><span class="line">commit d101e2d9501ad17abe795fbcf3fa6ed0608effca (HEAD -&gt; master)</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:05:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    create main, user page &lt;-- 커밋 메시지</span><br><span class="line"></span><br><span class="line">commit df2e84024257d6fa1ee8889346a966cc11450aa5</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:01:03 2021 +0900</span><br><span class="line"></span><br><span class="line">    create index page &lt;-- 커밋 메시지</span><br></pre></td></tr></table></figure>
+<h2 id="br-v2"><br/></h2>
 <br/>
-
+<br/>
+<br/>
+<h2 id="GitHub-CLI-Study">GitHub CLI Study</h2>
+<h3 id="GitHub-복사하기">GitHub 복사하기</h3>
+<blockquote>
+<p><b><code>GitHub의 프로젝트를 복사합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone GitHubAddressUrl</span><br><span class="line">-------------------------</span><br><span class="line">Cloning into &#39;GitHubProject&#39;...</span><br><span class="line">remote: Enumerating objects: 6, done.</span><br><span class="line">remote: Counting objects: 100% (6&#x2F;6), done.</span><br><span class="line">remote: Compressing objects: 100% (2&#x2F;2), done.</span><br><span class="line">remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (6&#x2F;6), done.</span><br></pre></td></tr></table></figure>
+<br />
+<h3 id="GitHub-연동하기">GitHub 연동하기</h3>
+<blockquote>
+<p><b><code>로컬의 Git과 서버의 GitHub와 연동합니다.</code></b><br>
+<b><code>(주의) GitHub의 프로젝트 이름과 Git의 폴더명이 같아야 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin GitHubProjectUrl</span><br><span class="line">-------------------------</span><br></pre></td></tr></table></figure>
+<br />
+<h3 id="GitHub-master-브랜치-이름-변경">GitHub master 브랜치 이름 변경</h3>
+<blockquote>
+<p><b><code>브랜치의 이름을 master에서 main으로 변경합니다.</code></b><br>
+<b><code>(이유) 주인(master)과 노예(slave)의 언어 순화를 위해 변경합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br><span class="line">-------------------------</span><br><span class="line">master -&gt; main</span><br></pre></td></tr></table></figure>
+<br />
+<h3 id="GitHub에-반영하기">GitHub에 반영하기</h3>
+<blockquote>
+<p><b><code>Git의 기록을 GitHub에 반영합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br><span class="line">-------------------------</span><br><span class="line">Enumerating objects: 3, done.</span><br><span class="line">Counting objects: 100% (3&#x2F;3), done.</span><br><span class="line">Writing objects: 100% (3&#x2F;3), 210 bytes | 210.00 KiB&#x2F;s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To GitHubProjectUrl</span><br><span class="line"> * [new branch]      main -&gt; main</span><br><span class="line">Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</span><br></pre></td></tr></table></figure>
+<br />
+<h3 id="GitHub에-새로운-내용-확인하기">GitHub에 새로운 내용 확인하기</h3>
+<blockquote>
+<p><b><code>GitHub에 새로운 내용이 저장되어 있는지 확인합니다.</code></b></p>
+<p><b><code>(주의) Git에 변경사항이 없다면 문제가 되지 않지만,</code></b><br>
+<b><code>변경사항이 있는 경우 GitHub에 저장하려고하면</code></b><br>
+<b><code>Git과 GitHub의 내용이 같지 않아서 동기화를 해야 합니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br><span class="line">-------------------------</span><br></pre></td></tr></table></figure>
+<br />
+<h3 id="GitHub에서-당겨오기">GitHub에서 당겨오기</h3>
+<blockquote>
+<p><b><code>최신 GitHub 기록을 당겨옵니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br><span class="line">-------------------------</span><br><span class="line">From GitHubAddressUrl</span><br><span class="line"> * branch            main       -&gt; FETCH_HEAD</span><br><span class="line">Updating 4700ef6..312870d</span><br><span class="line">Fast-forward</span><br><span class="line"> README.md | 2 ++</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 README.md</span><br></pre></td></tr></table></figure>
+<br />
 </div>
 
 
