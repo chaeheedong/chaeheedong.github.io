@@ -189,7 +189,27 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="Git-CLI-Setting">Git CLI Setting</h2>
+  <h2 id="Git-File-Usage">Git File Usage</h2>
+<h3 id="gitignore">.gitignore</h3>
+<blockquote>
+<p><b><code>프로젝트에 반영하고 싶지 않은 파일을 제외하는 파일입니다.</code></b><br>
+<b><code>최상위 디렉토리에 있어야 합니다.</code></b><br>
+<a href="http://gitignore.io" target="_blank" rel="noopener">gitignore.io 홈페이지 확인하기</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">HELP.md</span><br><span class="line">.gradle</span><br><span class="line">build&#x2F;</span><br><span class="line">!gradle&#x2F;wrapper&#x2F;gradle-wrapper.jar</span><br><span class="line">!**&#x2F;src&#x2F;main&#x2F;**&#x2F;build&#x2F;</span><br><span class="line">!**&#x2F;src&#x2F;test&#x2F;**&#x2F;build&#x2F;</span><br><span class="line"></span><br><span class="line">### STS ###</span><br><span class="line">.apt_generated</span><br><span class="line">.classpath</span><br><span class="line">.factorypath</span><br><span class="line">.project</span><br><span class="line">.settings</span><br><span class="line">.springBeans</span><br><span class="line">.sts4-cache</span><br><span class="line">bin&#x2F;</span><br><span class="line">!**&#x2F;src&#x2F;main&#x2F;**&#x2F;bin&#x2F;</span><br><span class="line">!**&#x2F;src&#x2F;test&#x2F;**&#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line">### IntelliJ IDEA ###</span><br><span class="line">.idea</span><br><span class="line">*.iws</span><br><span class="line">*.iml</span><br><span class="line">*.ipr</span><br><span class="line">out&#x2F;</span><br><span class="line">!**&#x2F;src&#x2F;main&#x2F;**&#x2F;out&#x2F;</span><br><span class="line">!**&#x2F;src&#x2F;test&#x2F;**&#x2F;out&#x2F;</span><br><span class="line"></span><br><span class="line">### NetBeans ###</span><br><span class="line">&#x2F;nbproject&#x2F;private&#x2F;</span><br><span class="line">&#x2F;nbbuild&#x2F;</span><br><span class="line">&#x2F;dist&#x2F;</span><br><span class="line">&#x2F;nbdist&#x2F;</span><br><span class="line">&#x2F;.nb-gradle&#x2F;</span><br><span class="line"></span><br><span class="line">### VS Code ###</span><br><span class="line">.vscode&#x2F;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="README-md">README .md</h3>
+<blockquote>
+<p><b><code>프로젝트를 설명하는 파일입니다.</code></b><br>
+<b><code>어떠한 기술을 사용했고 기능은 무엇인지 기술합니다.</code></b><br>
+<b><code>텍스트, 마크업언어등 기술할 수 있습니다.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="br"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="Git-CLI-Setting">Git CLI Setting</h2>
 <h3 id="버전-확인">버전 확인</h3>
 <blockquote>
 <p><b><code>Git 버전을 확인할 수 있습니다.</code></b></p>
@@ -213,7 +233,7 @@ function sidebar_toggle() {
 <p><b><code>Git 설정에 있는 name과 email을 변경합니다.</code></b></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="br"><br/></h2>
+<h2 id="br-v2"><br/></h2>
 <br/>
 <br/>
 <br/>
@@ -261,7 +281,7 @@ function sidebar_toggle() {
 <b><code>(주의) 한번 돌아가면 더이상 돌아오지 못하니 주의합니다.</code></b></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard commitAddress(df2e84024257d6fa1ee8889346a966cc11450aa5)</span><br><span class="line">-------------------------</span><br><span class="line">commit d101e2d9501ad17abe795fbcf3fa6ed0608effca (HEAD -&gt; master)</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:05:20 2021 +0900</span><br><span class="line"></span><br><span class="line">    create main, user page &lt;-- 커밋 메시지</span><br><span class="line"></span><br><span class="line">commit df2e84024257d6fa1ee8889346a966cc11450aa5</span><br><span class="line">Author: name &lt;email@email.com&gt;</span><br><span class="line">Date:   Wed Jun 23 22:01:03 2021 +0900</span><br><span class="line"></span><br><span class="line">    create index page &lt;-- 커밋 메시지</span><br></pre></td></tr></table></figure>
-<h2 id="br-v2"><br/></h2>
+<h2 id="br-v3"><br/></h2>
 <br/>
 <br/>
 <br/>
@@ -290,7 +310,7 @@ function sidebar_toggle() {
 <blockquote>
 <p><b><code>Git의 기록을 GitHub에 반영합니다.</code></b></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br><span class="line">-------------------------</span><br><span class="line">Enumerating objects: 3, done.</span><br><span class="line">Counting objects: 100% (3&#x2F;3), done.</span><br><span class="line">Writing objects: 100% (3&#x2F;3), 210 bytes | 210.00 KiB&#x2F;s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To GitHubProjectUrl</span><br><span class="line"> * [new branch]      main -&gt; main</span><br><span class="line">Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin &#123;branch&#125;</span><br><span class="line">-------------------------</span><br><span class="line">Enumerating objects: 3, done.</span><br><span class="line">Counting objects: 100% (3&#x2F;3), done.</span><br><span class="line">Writing objects: 100% (3&#x2F;3), 210 bytes | 210.00 KiB&#x2F;s, done.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To GitHubProjectUrl</span><br><span class="line"> * [new branch]      main -&gt; main</span><br><span class="line">Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</span><br></pre></td></tr></table></figure>
 <br />
 <h3 id="GitHub에-새로운-내용-확인하기">GitHub에 새로운 내용 확인하기</h3>
 <blockquote>
@@ -305,7 +325,7 @@ function sidebar_toggle() {
 <blockquote>
 <p><b><code>최신 GitHub 기록을 당겨옵니다.</code></b></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main</span><br><span class="line">-------------------------</span><br><span class="line">From GitHubAddressUrl</span><br><span class="line"> * branch            main       -&gt; FETCH_HEAD</span><br><span class="line">Updating 4700ef6..312870d</span><br><span class="line">Fast-forward</span><br><span class="line"> README.md | 2 ++</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 README.md</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git pull origin &#123;branch&#125;</span><br><span class="line">-------------------------</span><br><span class="line">From GitHubAddressUrl</span><br><span class="line"> * branch            main       -&gt; FETCH_HEAD</span><br><span class="line">Updating 4700ef6..312870d</span><br><span class="line">Fast-forward</span><br><span class="line"> README.md | 2 ++</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 README.md</span><br></pre></td></tr></table></figure>
 <br />
 </div>
 
