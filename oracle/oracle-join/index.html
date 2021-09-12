@@ -197,6 +197,7 @@ function sidebar_toggle() {
 <h1 id="목록">목록</h1>
 <ul>
 <li><code>조인 테이블 DDL</code></li>
+<li><code>카티시안 곱</code></li>
 <li><code>조인</code></li>
 </ul>
 <hr>
@@ -209,6 +210,19 @@ function sidebar_toggle() {
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableA(c1 <span class="built_in">NUMBER</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableB(c1 <span class="built_in">NUMBER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">7</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="br"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="카티시안-곱">카티시안 곱</h2>
+<h3 id="카티시안-곱-이란">카티시안 곱 이란?</h3>
+<blockquote>
+<p><b><code>테이블 n개를 Join 하지 않고 조회시 발생한다.</code></b><br>
+<b><code>상단 예제 DDL 의 카티시안 곱 발생시 25개의 결과가 나온다.</code></b><br>
+<b><code>tableA(5) * tableB(5) = 25</code></b><br>
+<b><code>Join 조건이 누락 되었을 때 발생한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    a.c1 <span class="keyword">as</span> a</span><br><span class="line">    , b.c1 <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">FROM</span> tableA a, tableB b</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3</span></span><br><span class="line"><span class="number">1</span>    <span class="number">5</span></span><br><span class="line"><span class="number">1</span>    <span class="number">7</span></span><br><span class="line"><span class="number">1</span>    <span class="number">9</span></span><br><span class="line"><span class="number">2</span>    <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="number">3</span></span><br><span class="line"><span class="number">2</span>    <span class="number">5</span></span><br><span class="line">...  ...</span><br></pre></td></tr></table></figure>
+<h2 id="br-v2"><br/></h2>
 <br/>
 <br/>
 <br/>
