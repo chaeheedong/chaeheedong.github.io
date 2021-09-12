@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          oracle-join.md - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY"><mark>[ STUDY ]</mark></h1>
+<h2 id="Git-GitHub">Git &amp; GitHub</h2>
+<ul>
+<li><a href="/git/git-cli">&gt; CLI</a></li>
+</ul>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/oracle-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/oracle-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/oracle-sequence">&gt; 시퀀스</a></li>
+<li><a href="/oracle/oracle-join">&gt; 조인</a></li>
+</ul>
+<h2 id="MySQL">MySQL</h2>
+<ul>
+<li><a href="/mysql/mysql-merge">&gt; MERGE</a></li>
+</ul>
+<h2 id="JAVA">JAVA</h2>
+<ul>
+<li><a href="/java/java-exception">&gt; 예외처리</a></li>
+<li><a href="/java/java-encryption">&gt; 암호화</a></li>
+</ul>
+<h2 id="SPRING">SPRING</h2>
+<ul>
+<li><a href="">&gt;</a></li>
+</ul>
+<!-- * [> 예외처리](/spring/spring-exception) -->
+<h2 id="REACT">REACT</h2>
+<ul>
+<li><a href="">&gt;</a></li>
+</ul>
+<h1 id="SETTINGS"><mark>[ SETTINGS ]</mark></h1>
+<h2 id="SPRING-v2">SPRING</h2>
+<ul>
+<li><a href="/spring/spring-tiles">&gt; Tiles</a></li>
+</ul>
+<h1 id="ERROR"><mark>[ ERROR ]</mark></h1>
+<h2 id="ORACLE-v2">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-err00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/oracle-err01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/oracle-err03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id="ETC"><mark>[ ETC ]</mark></h1>
+<h2 id="PLUGIN">PLUGIN</h2>
+<ul>
+<li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+</ul>
+<h1 id="USAGE"><mark>[ USAGE ]</mark></h1>
+<h2 id="GITBLOG">GITBLOG</h2>
+<ul>
+<li><a href="/usage/use01-Elements">Elements</a></li>
+<li><a href="/usage/use02-Image">Image</a></li>
+<li><a href="/usage/use03-Link">Link</a></li>
+<li><a href="/usage/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/usage/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/usage/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/usage/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/usage/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+
+/**
+ * 풀스크린일때 메뉴 열고 닫기
+ */
+// window.onkeydown = e => {
+//   e.key === 'S'   ? this.sidebar_toggle()
+//   : e.key === 's' && this.sidebar_toggle()
+// }
+window.onkeydown = e => {
+  if(e.key === 'S' || e.key === 's') {
+    this.sidebar_toggle();
+  }
+}
+
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    } else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <br/>
+<p><img src="/img/join_img.jpeg" alt="출처 : https://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins"></p>
+<h1 id="목록">목록</h1>
+<ul>
+<li><code>조인 테이블 DDL</code></li>
+<li><code>조인</code></li>
+</ul>
+<hr>
+<br/>
+<h2 id="조인-테이블-DDL">조인 테이블 DDL</h2>
+<h3 id="예제-테이블-DDL">예제 테이블 DDL</h3>
+<blockquote>
+<p><b><code>tableA 와 tableB 의 DDL 입니다.</code></b><br>
+<b><code>예제 전용 테이블 및 데이터 입니다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableA(c1 <span class="built_in">NUMBER</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> tableB(c1 <span class="built_in">NUMBER</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableA <span class="keyword">values</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">3</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">7</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tableB <span class="keyword">values</span>(<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="br"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="조인">조인</h2>
+<h3 id="등가-조인">등가 조인</h3>
+<blockquote>
+<p><b><code>Equi Join 으로도 불린다.</code></b><br>
+<b><code>WHERE 절에 등호(=)를 이용하여 조인한다.</code></b><br>
+<b><code>aliasA.column = aliasB.column</code></b><br>
+<b><code>조인하는 양쪽의 컬럼값이 동일한 것만 조인에 성공한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a, tableB b</span><br><span class="line"><span class="keyword">WHERE</span> a.c1 = b.c1;</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line">1    1</span><br><span class="line">3    3</span><br><span class="line">5    5</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="비등가-조인">비등가 조인</h3>
+<blockquote>
+<p><b><code>Non Equi Join 으로도 불린다.</code></b><br>
+<b><code>WHERE 절에 등호(=) 외의 다른 조건을 이용하여 조인한다. </code></b><br>
+<b><code>등호(=) 외에 &gt;=, &lt;=, &gt;, &lt;, != 등등 있다.</code></b><br>
+<b><code>조인하는 조건이 동일한 것만 조인에 성공한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a, tableB b</span><br><span class="line"><span class="keyword">WHERE</span> a.c1 &gt;= b.c1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> b.c1</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">1</span></span><br><span class="line"><span class="number">4</span>    <span class="number">1</span></span><br><span class="line"><span class="number">5</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">4</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="이너-조인">이너 조인</h3>
+<blockquote>
+<p><b><code>Inner Join 으로도 불린다.</code></b><br>
+<b><code>수학의 교집합과 같다.</code></b><br>
+<b><code>최상단 그림 예제의 중간에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 INNER JOIN table alias ON condition 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="레프트-아우터-조인">레프트 아우터 조인</h3>
+<blockquote>
+<p><b><code>Left Outer Join 으로도 불린다.</code></b><br>
+<b><code>최상단 그림 예제의 좌측 상단에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 LEFT JOIN table alias ON condition 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br><span class="line"><span class="number">4</span>    <span class="literal">null</span></span><br><span class="line"><span class="number">2</span>    <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="레프트-아우터-조인-교집합-제거">레프트 아우터 조인 [교집합 제거]</h3>
+<blockquote>
+<p><b><code>Left Outer Join 에서 교집합을 제거한다.</code></b><br>
+<b><code>최상단 그림 예제의 좌측 상단 두번째에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 LEFT JOIN table alias ON condition 을 기술한다.</code></b><br>
+<b><code>WHERE 절에 JOIN alias.column IS NOT NULL 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="keyword">WHERE</span> b.c1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="라이트-아우터-조인">라이트 아우터 조인</h3>
+<blockquote>
+<p><b><code>Right Outer Join 으로도 불린다.</code></b><br>
+<b><code>최상단 그림 예제의 우측 상단에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 RIGHT JOIN table alias ON condition 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br><span class="line"><span class="literal">null</span> <span class="number">7</span></span><br><span class="line"><span class="literal">null</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="라이트-아우터-조인-교집합-제거">라이트 아우터 조인 [교집합 제거]</h3>
+<blockquote>
+<p><b><code>Right Outer Join 으로도 불린다.</code></b><br>
+<b><code>최상단 그림 예제의 우측 상단에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 RIGHT JOIN table alias ON condition 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="keyword">WHERE</span> a.c1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="풀-아우터-조인-FullOuter">풀 아우터 조인 ( FullOuter )</h3>
+<blockquote>
+<p><b><code>Full Outer Join 으로도 불린다.</code></b><br>
+<b><code>최상단 그림 예제의 중앙에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 FULL JOIN table alias ON condition 을 기술한다.</code></b></p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">FULL</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> a.c1 <span class="keyword">ASC</span></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="literal">null</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">4</span>    <span class="literal">null</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br><span class="line"><span class="literal">null</span> <span class="number">7</span></span><br><span class="line"><span class="literal">null</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<br/>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2021-09-11</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/oracle/">oracle</a>
+
+      
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
