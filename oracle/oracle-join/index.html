@@ -268,12 +268,13 @@ function sidebar_toggle() {
 <h3 id="라이트-아우터-조인-교집합-제거">라이트 아우터 조인 [교집합 제거]</h3>
 <blockquote>
 <p><b><code>Right Outer Join 으로도 불린다.</code></b><br>
-<b><code>최상단 그림 예제의 우측 상단에 해당한다.</code></b><br>
-<b><code>FROM 절 아래에 RIGHT JOIN table alias ON condition 을 기술한다.</code></b></p>
+<b><code>최상단 그림 예제의 우측 상단 두번째에 해당한다.</code></b><br>
+<b><code>FROM 절 아래에 RIGHT JOIN table alias ON condition 을 기술한다.</code></b><br>
+<b><code>WHERE 절에 JOIN alias.column IS NOT NULL 을 기술한다.</code></b></p>
 </blockquote>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	a.c1 a</span><br><span class="line">	, b.c1 b</span><br><span class="line"><span class="keyword">FROM</span> tableA a</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> tableB b <span class="keyword">ON</span> a.c1 = b.c1</span><br><span class="line"><span class="keyword">WHERE</span> a.c1 <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line">a    b</span><br><span class="line"><span class="number">1</span>    <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">3</span></span><br><span class="line"><span class="number">5</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <br/>
-<h3 id="풀-아우터-조인-FullOuter">풀 아우터 조인 ( FullOuter )</h3>
+<h3 id="풀-아우터-조인">풀 아우터 조인</h3>
 <blockquote>
 <p><b><code>Full Outer Join 으로도 불린다.</code></b><br>
 <b><code>최상단 그림 예제의 중앙에 해당한다.</code></b><br>
