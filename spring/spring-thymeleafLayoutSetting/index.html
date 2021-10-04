@@ -11,7 +11,7 @@
 
     <title>
         
-          oracle-sequence - Dev Blog
+          spring-thymeleafLayoutSetting - Dev Blog
         
     </title>
 
@@ -193,9 +193,20 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="ORACLE-SEQUENCE">ORACLE SEQUENCE</h1>
-<h3 id="다중-Insert-Sequence">다중 Insert Sequence</h3>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TB_TABLE ( SEQ, <span class="keyword">COLUMN</span> )</span><br><span class="line">        <span class="keyword">SELECT</span> SEQ.NEXTVAL, T.*</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">        (</span><br><span class="line">            &lt;foreach item=<span class="string">"item"</span> collection=<span class="string">"list"</span> separator=<span class="string">"UNION ALL"</span>&gt;</span><br><span class="line">                <span class="keyword">SELECT</span></span><br><span class="line">                    $&#123;item.columnsName&#125;</span><br><span class="line">                <span class="keyword">FROM</span> DUAL</span><br><span class="line">            &lt;/foreach&gt;</span><br><span class="line">        ) T</span><br></pre></td></tr></table></figure>
+  <br/>
+<h1 id="목차">목차</h1>
+<ul>
+<li><code>  </code></li>
+</ul>
+<hr>
+<br/>
+<h2 id=""></h2>
+<h3 id="-v2"></h3>
+<blockquote>
+<p><b><code>  </code></b></p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<br/>
 </div>
 
 
@@ -232,7 +243,7 @@ function sidebar_toggle() {
     <!-- Author title -->
     <div class="author-title">
       <div>Mr. Lazy Tyler</div>
-      <div>2020-07-21</div>
+      <div>2021-10-04</div>
     </div>
   </div>
 
@@ -240,7 +251,7 @@ function sidebar_toggle() {
     <div class="divider"></div>
 
     <div class="link">
-      <a class="category-link" href="/categories/oracle/">oracle</a>
+      <a class="category-link" href="/categories/spring/">spring</a>
 
       
     </div>
