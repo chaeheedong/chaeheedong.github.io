@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          spring-jquerySetting - Dev Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<script src="/js/book.js"></script>
+
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DEV BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <!-- Navigation -->
+<ul>
+<li><a href="/">home</a></li>
+</ul>
+<h1 id="STUDY"><mark>[ STUDY ]</mark></h1>
+<h2 id="Git-GitHub">Git &amp; GitHub</h2>
+<ul>
+<li><a href="/git/git-cli">&gt; CLI</a></li>
+</ul>
+<h2 id="ORACLE">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-charFunc">&gt; 문자함수</a></li>
+<li><a href="/oracle/oracle-numberFunc">&gt; 숫자함수</a></li>
+<li><a href="/oracle/oracle-dateFunc">&gt; 날짜함수</a></li>
+<li><a href="/oracle/oracle-sequence">&gt; 시퀀스</a></li>
+<li><a href="/oracle/oracle-join">&gt; 조인</a></li>
+</ul>
+<h2 id="MySQL">MySQL</h2>
+<ul>
+<li><a href="/mysql/mysql-merge">&gt; MERGE</a></li>
+</ul>
+<h2 id="JAVA">JAVA</h2>
+<ul>
+<li><a href="/java/java-exception">&gt; 예외처리</a></li>
+<li><a href="/java/java-encryption">&gt; 암호화</a></li>
+</ul>
+<h2 id="SPRING">SPRING</h2>
+<!-- * [> 예외처리](/spring/spring-exception) -->
+<h2 id="REACT">REACT</h2>
+<ul>
+<li><a href="">&gt;</a></li>
+</ul>
+<h1 id="SETTINGS"><mark>[ SETTINGS ]</mark></h1>
+<h2 id="SPRING-v2">SPRING</h2>
+<ul>
+<li><a href="/spring/spring-tiles">&gt; Tiles</a></li>
+<li><a href="/spring/spring-dbSettings">&gt; DB 연동하기</a></li>
+<li><a href="/spring/spring-mybatisSetting">&gt; MyBatis 연동하기</a></li>
+<li><a href="/spring/spring-thymeleafSetting">&gt; Thymeleaf 연동하기</a></li>
+<li><a href="/spring/spring-jquerySetting">&gt; jQuery 연동하기</a></li>
+</ul>
+<!-- * [> Thymeleaf 레이아웃 연동하기](/spring/spring-thymeleafLayoutSetting) -->
+<!-- * [> @Hivernate Validator] -->
+<h1 id="ERROR"><mark>[ ERROR ]</mark></h1>
+<h2 id="ORACLE-v2">ORACLE</h2>
+<ul>
+<li><a href="/oracle/oracle-err00">&gt; ORA-00*</a></li>
+<li><a href="/oracle/oracle-err01">&gt; ORA-01*</a></li>
+<li><a href="/oracle/oracle-err03">&gt; ORA-03*</a></li>
+</ul>
+<h1 id="ETC"><mark>[ ETC ]</mark></h1>
+<h2 id="PLUGIN">PLUGIN</h2>
+<ul>
+<li><a href="/etc/etc-Intellij-Plugins">&gt; Intellij Plugins</a></li>
+</ul>
+<h1 id="USAGE"><mark>[ USAGE ]</mark></h1>
+<h2 id="GITBLOG">GITBLOG</h2>
+<ul>
+<li><a href="/usage/use01-Elements">Elements</a></li>
+<li><a href="/usage/use02-Image">Image</a></li>
+<li><a href="/usage/use03-Link">Link</a></li>
+<li><a href="/usage/use04-TagPlugins">TagPlugins</a></li>
+<li><a href="/usage/use05-MarkDownDemo">MarkDownDemo</a></li>
+<li><a href="/usage/use06-KatexDemo">KatexDemo</a></li>
+<li><a href="/usage/use07-FootNotesDemo">FooterNotesDemo</a></li>
+<li><a href="/usage/use08-MarkDownContainer">MarkDownContainer</a></li>
+</ul>
+
+</div>
+
+
+<script src="/js/book-menu.js"></script>
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+
+/**
+ * 풀스크린일때 메뉴 열고 닫기
+ */
+// window.onkeydown = e => {
+//   e.key === 'S'   ? this.sidebar_toggle()
+//   : e.key === 's' && this.sidebar_toggle()
+// }
+window.onkeydown = e => {
+  if(e.key === 'S' || e.key === 's') {
+    this.sidebar_toggle();
+  }
+}
+
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    } else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <br/>
+<h1 id="목차">목차</h1>
+<ul>
+<li><code>jQuery란?</code></li>
+<li><code>jQuery 설정하기</code></li>
+<li><code>jQuery 버전 설정하기</code></li>
+</ul>
+<hr>
+<br/>
+<h2 id="jQuery란">jQuery란?</h2>
+<p>추후 작성할 예정입니다.</p>
+<h2 id="br"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="jQuery-설정하기">jQuery 설정하기</h2>
+<p>추후 작성할 예정입니다.</p>
+<h3 id="build-gradle-설정하기">build.gradle 설정하기</h3>
+<blockquote>
+<p><a href="https://mvnrepository.com/" target="_blank" rel="noopener">mvnrepository</a><b><code>에 접속한다.</code></b><br>
+<b><code>검색란에 'jquery'를 검색한 후 org.webjars 패키지를 선택한다.</code></b><br>
+<b><code>원하는 버전을 클릭 후 build.gradle에 추가해준다.</code></b><br>
+<b><code>!! 이때 mvn페이지를 종료하지 않고 대기한다.</code></b><br>
+<b><code>gradle -&gt; Source Sets -&gt; main 에 jQuery가 있는지 확인한다.</code></b></p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">  <span class="comment">// https://mvnrepository.com/artifact/org.webjars/jquery</span></span><br><span class="line">  implementation <span class="keyword">group</span>: <span class="string">'org.webjars'</span>, name: <span class="string">'jquery'</span>, version: <span class="string">'3.6.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="jar-파일-입력하기">jar 파일 입력하기</h3>
+<blockquote>
+<p><b><code>위의 mvnrepository 버전 클릭시 Files에서 jar파일을 다운로드 한다.</code></b><br>
+<b><code>압축을 풀고 /META-INF/resources 내부의 webjars를 복사한다.</code></b><br>
+<b><code>프로젝트의 /resources/static에 vendor폴더를 생성한다.</code></b><br>
+<b><code>webjars 폴더를 vendor폴더에 넣어준다. ( resources/static/vendor/webjars )</code></b><br>
+<b><code>아래 폴더 구조를 참고하자.</code></b></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">l--- resources</span><br><span class="line">l      l--- static</span><br><span class="line">l            l--- vendor</span><br><span class="line">l                  l--- webjars</span><br><span class="line">l                        l--- jquery</span><br><span class="line">l                              l--- version</span><br><span class="line">l                                    l--- dist</span><br><span class="line">l                                          l--- jquery.min.js</span><br><span class="line">l                                    l--- external</span><br><span class="line">l                                    l--- src</span><br><span class="line">l                                    l--- ...</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="import-하기">import 하기</h3>
+<blockquote>
+<p><b><code>html의 script 입력하는 곳에 jquery를 import한다.</code></b><br>
+<b><code> 경로는 /vendor/webjars/jquery/version/dist/jquery.min.js 가 된다.</code></b><br>
+<b><code> !! /dist/jquery.min.js 를 꼭 하자.</code></b></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/vendor/webjars/jquery/version/dist/jquery.min.js"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="확인하기">확인하기</h3>
+<blockquote>
+<p><b><code>정상적으로 설정이 되었으면 알림창으로 'jQuery Test' 문구가 출력된다.</code></b></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/vendor/webjars/jquery/version/dist/jquery.min.js"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span></span><br><span class="line"></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">      alert(<span class="string">'jQuery Test'</span>);</span></span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="br-v2"><br/></h2>
+<br/>
+<br/>
+<br/>
+<h2 id="jQuery-버전-설정하기">jQuery 버전 설정하기</h2>
+<h3 id="webjars-locator-core란">webjars-locator-core란?</h3>
+<p>추후 작성할 예정입니다.</p>
+<h3 id="build-gradle-설정하기-v2">build.gradle 설정하기</h3>
+<blockquote>
+<p><a href="https://mvnrepository.com/" target="_blank" rel="noopener">mvnrepository</a><b><code>에 접속한다.</code></b><br>
+<b><code>검색란에 'webjars'를 검색한 후 org.webjars &gt;&gt; webjars-locator-core 패키지를 선택한다.</code></b><br>
+<b><code>원하는 버전을 클릭 후 build.gradle에 추가해준다.</code></b><br>
+<b><code>gradle -&gt; Source Sets -&gt; main 에 webjars가 있는지 확인한다.</code></b></p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">  <span class="comment">// https://mvnrepository.com/artifact/org.webjars/webjars-locator-core</span></span><br><span class="line">    implementation <span class="keyword">group</span>: <span class="string">'org.webjars'</span>, name: <span class="string">'webjars-locator-core'</span>, version: <span class="string">'0.48'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="jQuery-경로-수정하기">jQuery 경로 수정하기</h3>
+<blockquote>
+<p><b><code>html의 script 입력하는 곳에 jquery를 수정한다.</code></b><br>
+<b><code> 경로는 /vendor/webjars/jquery/dist/jquery.min.js 가 된다.</code></b><br>
+<b><code>!! 기존 jquery경로에서 version을 제거한다.</code></b></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/vendor/webjars/jquery/dist/jquery.min.js"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="확인하기-v2">확인하기</h3>
+<blockquote>
+<p><b><code>정상적으로 설정이 되었으면 알림창으로 'jQuery Test' 문구가 출력된다.</code></b></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/vendor/webjars/jquery/dist/jquery.min.js"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span></span><br><span class="line"></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">      alert(<span class="string">'jQuery Test'</span>);</span></span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/favicon.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Mr. Lazy Tyler</div>
+      <div>2021-10-11</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/spring/">spring</a>
+
+      
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+
+<script src="/js/book.js"></script>
