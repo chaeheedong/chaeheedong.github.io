@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="/spring/spring-mybatisSetting">&gt; MyBatis 연동하기</a></li>
 <li><a href="/spring/spring-thymeleafSetting">&gt; Thymeleaf 연동하기</a></li>
 <li><a href="/spring/spring-jquerySetting">&gt; jQuery 연동하기</a></li>
+<li><a href="/spring/spring-bootstrapSetting">&gt; Bootstrap 연동하기</a></li>
 </ul>
 <!-- * [> Thymeleaf 레이아웃 연동하기](/spring/spring-thymeleafLayoutSetting) -->
 <!-- * [> @Hivernate Validator] -->
@@ -232,11 +233,11 @@ function sidebar_toggle() {
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">l--- resources</span><br><span class="line">l      l--- static</span><br><span class="line">l            l--- vendor</span><br><span class="line">l                  l--- webjars</span><br><span class="line">l                        l--- jquery</span><br><span class="line">l                              l--- version</span><br><span class="line">l                                    l--- dist</span><br><span class="line">l                                          l--- jquery.min.js</span><br><span class="line">l                                    l--- external</span><br><span class="line">l                                    l--- src</span><br><span class="line">l                                    l--- ...</span><br></pre></td></tr></table></figure>
 <br/>
-<h3 id="import-하기">import 하기</h3>
+<h3 id="jquery-경로-추가하기">jquery 경로 추가하기</h3>
 <blockquote>
-<p><b><code>html의 script 입력하는 곳에 jquery를 import한다.</code></b><br>
-<b><code> 경로는 /vendor/webjars/jquery/version/dist/jquery.min.js 가 된다.</code></b><br>
-<b><code> !! /dist/jquery.min.js 를 꼭 하자.</code></b></p>
+<p><b><code>html의 script 입력하는 곳에 jquery를 추가한다.</code></b><br>
+<b><code>경로는 /vendor/webjars/jquery/version/dist/jquery.min.js 가 된다.</code></b><br>
+<b><code>!! /dist/jquery.min.js 를 꼭 하자.</code></b></p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/vendor/webjars/jquery/version/dist/jquery.min.js"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
 <br/>
